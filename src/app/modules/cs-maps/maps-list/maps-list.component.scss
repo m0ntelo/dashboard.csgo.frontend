@@ -1,9 +1,10 @@
 .maps-list {
-    padding: 48px 0 48px 0;
+    min-height: calc(100vw - 500px);
+    padding: 120px 0 48px 0;
 
     &__details {
 
-        &__description {
+        &__card {
             border-radius: 0px 0px 5px 5px;
             background-color: rgb(247, 238, 238);
             padding: 10px 10px;
@@ -18,11 +19,27 @@
     
             &__description {
                 font-size: 12px;
+                word-break: break-all;
             }
-        }
 
-        &__preview {
-            color: red;
+            &__actions {
+                display: flex;
+
+                button {
+                    display: flex;
+                    align-items: center;
+                    margin: 16px 5px 0px 0px;
+                    font-size: 12px;
+                    font-weight: bold;
+                    
+                    mat-icon {
+                        display: flex;
+                        align-items: center;
+                        margin-left: 6px;
+                        font-size: 18px;
+                    }
+                }
+            }
         }
     }
 }
