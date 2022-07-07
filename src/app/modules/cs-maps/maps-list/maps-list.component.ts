@@ -3,6 +3,7 @@ import { Clipboard } from '@angular/cdk/clipboard';
 import { Subject, takeUntil } from 'rxjs';
 
 import { ISteamRemoteStorageService } from '@core/service/isteam-remote-storage.service';
+import { SnackbarService } from '@core/service/snackbar.service';
 import { CollectionDetails } from '@app/shared/model/collection-details';
 import { PublishedFileDetails } from '@app/shared/model/published-file-details';
 
@@ -20,7 +21,8 @@ export class MapsListComponent implements OnInit, OnDestroy {
 
   constructor(
     private steamRemoteStorageService: ISteamRemoteStorageService,
-    private clipboard: Clipboard
+    private clipboard: Clipboard,
+    private snackbarService: SnackbarService
   ) { }
 
   public ngOnInit(): void {
@@ -41,7 +43,7 @@ export class MapsListComponent implements OnInit, OnDestroy {
           this.GetMapsById();
         },
         () => {
-          this.steamRemoteStorageService.message('reclame com a valve! :(', true);
+          this.snackbarService.message('reclame com a valve! :(', true);
         }
       )
   }
@@ -54,7 +56,7 @@ export class MapsListComponent implements OnInit, OnDestroy {
           this.details = req;
         },
         () => {
-          this.steamRemoteStorageService.message('reclame com a valve! :(', true);
+          this.snackbarService.message('reclame com a valve! :(', true);
         }
       )
   }
@@ -79,7 +81,7 @@ export class MapsListComponent implements OnInit, OnDestroy {
   }
 
   public copyCode(id?: string) {
-    this.steamRemoteStorageService.message('Copiado :D', false);
+    this.snackbarService.message('Copiado :D', false);
     this.clipboard.copy(`./srcds_run -game csgo -console -usercon -tickrate 128 +host_workshop_collection 2831281196 +workshop_start_map ${id} -authkey 62A7BE2AD8FCD3AC63B1FCF529F1BF04 +sv_setsteamaccount 293B6CBE804331D9B6BEF5CABE42B2AC -net_port_try`);
   }
 

@@ -57,7 +57,7 @@ export class ISteamRemoteStorageService {
     return EMPTY;
   }
 
-  public message(msg: string, isError: boolean = false): void {
+  private message(msg: string, isError: boolean = false): void {
     this.snackBar.open(msg, "X", {
       duration: 3000,
       horizontalPosition: "right",

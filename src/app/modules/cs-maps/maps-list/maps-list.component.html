@@ -10,8 +10,14 @@
                     <div class="maps-list__details__card__title">{{ item?.title }}</div>
                     <div class="maps-list__details__card__description">{{ sliceWords(item.description) }}</div>
                     <div class="maps-list__details__card__actions">
-                        <button (click)="copyCode(item.publishedfileid)">Copy<mat-icon>content_copy</mat-icon></button>
-                        <button (click)="linkWorkshop(item.publishedfileid)">Link Workshop</button>
+                        <button (click)="copyCode(item.publishedfileid)">Copy
+                            <mat-icon>
+                                content_copy
+                            </mat-icon>
+                        </button>
+                        <button (click)="linkWorkshop(item.publishedfileid)">
+                            Link Workshop
+                        </button>
                     </div>
                 </div>
             </div>

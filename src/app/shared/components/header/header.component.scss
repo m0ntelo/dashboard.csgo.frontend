@@ -4,9 +4,31 @@
     padding: 18px 0 18px 0;
     background-color: blueviolet;
 
-    &__name {
-        color: white;
-        font-size: 24px;
-        font-weight: 400;
+    &__box {
+        display: flex;
+        justify-content: space-between;
+
+        &__name {
+            color: white;
+            font-size: 24px;
+            font-weight: 400;
+            margin-top: 6px;
+            text-transform: uppercase;
+        }
+
+        &__ip {
+            display: flex;
+            align-items: center;
+            padding-top: 6px;
+            background-color: transparent;
+            border: 2px solid white;
+            color: white;
+            text-transform: uppercase;
+
+            mat-icon {
+                margin-left: 6px;
+                font-size: 18px;
+            }
+        }
     }
 }
