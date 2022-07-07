@@ -70,4 +70,8 @@ export class MapsListComponent implements OnInit, OnDestroy {
       )
     )
   }
+
+  public sliceWords(words: string = ''): string {
+    return words.slice(0, 200);
+  } 
 }

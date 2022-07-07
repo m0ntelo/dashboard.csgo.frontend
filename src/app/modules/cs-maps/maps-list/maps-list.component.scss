@@ -1,7 +1,28 @@
 .maps-list {
-    padding: 22px 0 22px 0;
+    padding: 48px 0 48px 0;
 
     &__details {
 
+        &__description {
+            border-radius: 0px 0px 5px 5px;
+            background-color: rgb(247, 238, 238);
+            padding: 10px 10px;
+            margin: 0px 0px 15px 0;
+
+            &__title {
+                font-size: 16px;
+                font-weight: bold;
+                text-transform: uppercase;
+                margin: 12px 0 12px 0;
+            }
+    
+            &__description {
+                font-size: 12px;
+            }
+        }
+
+        &__preview {
+            color: red;
+        }
     }
 }

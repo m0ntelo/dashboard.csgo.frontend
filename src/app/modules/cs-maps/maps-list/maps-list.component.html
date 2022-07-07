@@ -1,9 +1,14 @@
 <section class="maps-list">
     <div class="container">
         <div class="row">
-            <div class="maps-list-details">
-                <div *ngFor="let item of details?.publishedfiledetails">
-                    {{item.publishedfileid}}
+            <div class="col-3 maps-list__details"
+                *ngFor="let item of details?.publishedfiledetails">
+                <div class="maps-list__details__preview">
+                    <img [src]="item?.preview_url" width="100%" height="auto">
+                </div>
+                <div class="maps-list__details__description">
+                    <div class="maps-list__details__description__title">{{ item?.title }}</div>
+                    <div class="maps-list__details__description__description">{{ sliceWords(item.description) }}</div>
                 </div>
             </div>
         </div>
