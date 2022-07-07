@@ -12,7 +12,7 @@ import { PublishedFileDetails } from '@shared/model/published-file-details';
 })
 export class ISteamRemoteStorageService {
 
-  private baseUrl: string = 'https://api.steampowered.com/ISteamRemoteStorage/';
+  private baseUrl: string = 'http://localhost:3000/';
 
   constructor(
     private http: HttpClient,
@@ -20,14 +20,14 @@ export class ISteamRemoteStorageService {
   ) { }
   
   public GetCollectionDetails(): Observable<CollectionDetails[]> {
-    return this.http.get<CollectionDetails[]>(this.baseUrl + 'GetCollectionDetails/v1/').pipe(
+    return this.http.get<CollectionDetails[]>(this.baseUrl + 'GetAllMaps').pipe(
       map((obj) => obj),
       catchError((e) => this.errorHandler(e))
     );
   }
 
   public GetPublishedFileDetails(): Observable<PublishedFileDetails[]> {
-    return this.http.get<PublishedFileDetails[]>(this.baseUrl + 'GetPublishedFileDetails/v1/').pipe(
+    return this.http.get<PublishedFileDetails[]>(this.baseUrl + 'GetMapsById').pipe(
       map((obj) => obj),
       catchError((e) => this.errorHandler(e))
     );

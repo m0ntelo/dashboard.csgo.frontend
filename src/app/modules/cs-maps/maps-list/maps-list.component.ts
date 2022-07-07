@@ -18,7 +18,7 @@ export class MapsListComponent implements OnInit, OnDestroy {
 
   public ngOnInit(): void {
     this.GetCollectionDetails();
-    this.GetPublishedFileDetails();
+    // this.GetPublishedFileDetails();
   }
 
   public ngOnDestroy(): void {
