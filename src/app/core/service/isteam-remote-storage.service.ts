@@ -35,7 +35,7 @@ export class ISteamRemoteStorageService {
     
     return this.http.post<CollectionDetails[]>(this.baseUrl + this.path.all, body, options).pipe(
       map((obj) => obj),
-      catchError((e) => this.errorHandler(e))
+      catchError((e) => this.error(e))
     );
   }
 
@@ -48,16 +48,16 @@ export class ISteamRemoteStorageService {
 
     return this.http.post<PublishedFileDetails[]>(this.baseUrl + this.path.byId, body, options).pipe(
       map((obj) => obj),
-      catchError((e) => this.errorHandler(e))
+      catchError((e) => this.error(e))
     );
   }
 
-  private errorHandler(e: any): Observable<any> {
-    this.showMessage("Ocorreu um erro!", true);
+  private error(e: any): Observable<any> {
+    this.message("Ocorreu um erro!", true);
     return EMPTY;
   }
 
-  public showMessage(msg: string, isError: boolean = false): void {
+  public message(msg: string, isError: boolean = false): void {
     this.snackBar.open(msg, "X", {
       duration: 3000,
       horizontalPosition: "right",

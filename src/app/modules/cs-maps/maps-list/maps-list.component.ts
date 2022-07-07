@@ -37,8 +37,8 @@ export class MapsListComponent implements OnInit, OnDestroy {
           this.collection = req;
           this.GetMapsById();
         },
-        (error) => {
-          console.error(error);
+        () => {
+          this.steamRemoteStorageService.message('reclame com a valve! :(', true);
         }
       )
   }
@@ -50,8 +50,8 @@ export class MapsListComponent implements OnInit, OnDestroy {
         (req: PublishedFileDetails) => {
           this.details = req;
         },
-        (error) => {
-          console.error(error);
+        () => {
+          this.steamRemoteStorageService.message('reclame com a valve! :(', true);
         }
       )
   }
