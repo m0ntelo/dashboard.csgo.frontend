@@ -2,6 +2,8 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subject, takeUntil } from 'rxjs';
 
 import { ISteamRemoteStorageService } from '@core/service/isteam-remote-storage.service';
+import { CollectionDetails } from '@app/shared/model/collection-details';
+import { PublishedFileDetails } from '@app/shared/model/published-file-details';
 
 @Component({
   selector: 'app-maps-list',
@@ -10,6 +12,8 @@ import { ISteamRemoteStorageService } from '@core/service/isteam-remote-storage.
 })
 export class MapsListComponent implements OnInit, OnDestroy {
 
+  public details?: PublishedFileDetails;
+  private collection?: CollectionDetails;
   private unSubscribe = new Subject<boolean>();
 
   constructor(
@@ -17,8 +21,7 @@ export class MapsListComponent implements OnInit, OnDestroy {
   ) { }
 
   public ngOnInit(): void {
-    this.GetCollectionDetails();
-    // this.GetPublishedFileDetails();
+    this.GetAllMaps();
   }
 
   public ngOnDestroy(): void {
@@ -26,23 +29,45 @@ export class MapsListComponent implements OnInit, OnDestroy {
     this.unSubscribe.complete;
   }
 
-  private GetCollectionDetails(): void {
-    this.steamRemoteStorageService.GetCollectionDetails()
+  private GetAllMaps(): void {
+    this.steamRemoteStorageService.GetAllMaps()
       .pipe(takeUntil(this.unSubscribe))
       .subscribe(
-        (req) => {
-          console.log(req, 'req');
+        (req: CollectionDetails) => {
+          this.collection = req;
+          this.GetMapsById();
+        },
+        (error) => {
+          console.error(error);
         }
       )
   }
 
-  private GetPublishedFileDetails(): void {
-    this.steamRemoteStorageService.GetPublishedFileDetails()
+  private GetMapsById(): void {
+    this.steamRemoteStorageService.GetMapsById(this.createBody())
       .pipe(takeUntil(this.unSubscribe))
       .subscribe(
-        (req) => {
-          console.log(req, 'req');
+        (req: PublishedFileDetails) => {
+          this.details = req;
+        },
+        (error) => {
+          console.error(error);
         }
       )
+  }
+
+  private createBody(): URLSearchParams {
+    const body = new URLSearchParams(this.remapArray())
+    body.set('itemCount', `${this.collection?.total}`)
+    return body;
+  }
+
+  private remapArray(): any {
+    const maps = this.collection?.maps;
+    return (
+      maps?.map(
+        (item: any, index) => [`collectionId[${index}]`, item.publishedfileid]
+      )
+    )
   }
 }

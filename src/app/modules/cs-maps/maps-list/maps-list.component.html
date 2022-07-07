@@ -2,7 +2,9 @@
     <div class="container">
         <div class="row">
             <div class="maps-list-details">
-                <p>maps-list works!</p>
+                <div *ngFor="let item of details?.publishedfiledetails">
+                    {{item.publishedfileid}}
+                </div>
             </div>
         </div>
     </div>

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpHeaders, HttpParams } from "@angular/common/http";
 import { Observable, EMPTY } from "rxjs";
 import { map, catchError } from "rxjs/operators";
 
@@ -13,21 +13,40 @@ import { PublishedFileDetails } from '@shared/model/published-file-details';
 export class ISteamRemoteStorageService {
 
   private baseUrl: string = 'http://localhost:3000/';
+  private collectionId: string = '2831281196';
+  private collectionCount: string = '1';
+  private path = { all: 'GetAllMaps', byId: 'GetMapsById' };
 
   constructor(
     private http: HttpClient,
     private snackBar: MatSnackBar
   ) { }
   
-  public GetCollectionDetails(): Observable<CollectionDetails[]> {
-    return this.http.get<CollectionDetails[]>(this.baseUrl + 'GetAllMaps').pipe(
+  public GetAllMaps(): Observable<CollectionDetails> {
+    let headers, body, options, params;
+
+    params = { 'Content-Type': 'application/x-www-form-urlencoded' };
+    headers = new HttpHeaders(params);
+    options = { headers: headers };
+
+    body = new URLSearchParams();
+    body.set('collectionId', this.collectionId);
+    body.set('collectionCount', this.collectionCount);
+    
+    return this.http.post<CollectionDetails[]>(this.baseUrl + this.path.all, body, options).pipe(
       map((obj) => obj),
       catchError((e) => this.errorHandler(e))
     );
   }
 
-  public GetPublishedFileDetails(): Observable<PublishedFileDetails[]> {
-    return this.http.get<PublishedFileDetails[]>(this.baseUrl + 'GetMapsById').pipe(
+  public GetMapsById(body: URLSearchParams): Observable<PublishedFileDetails> {
+    let headers, options, params;
+
+    params = { 'Content-Type': 'application/x-www-form-urlencoded' };
+    headers = new HttpHeaders(params);
+    options = { headers: headers };
+
+    return this.http.post<PublishedFileDetails[]>(this.baseUrl + this.path.byId, body, options).pipe(
       map((obj) => obj),
       catchError((e) => this.errorHandler(e))
     );
