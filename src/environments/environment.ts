@@ -3,7 +3,15 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  apiUrl: 'http://localhost:3000/',
+  apiKeySteam: '62A7BE2AD8FCD3AC63B1FCF529F1BF04',
+  gsltSteam: '293B6CBE804331D9B6BEF5CABE42B2AC',
+  idCollectionSteam: '2831281196',
+  linkWorkShopSteam: 'https://steamcommunity.com/sharedfiles/filedetails/?id=',
+  tickRate: '128',
+  serverIP: '35.247.213.164',
+  serverPassword: 'batatinha1234'
 };
 
 /*

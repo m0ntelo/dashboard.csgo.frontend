@@ -6,14 +6,16 @@ import { map, catchError } from "rxjs/operators";
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { CollectionDetails } from '@shared/model/collection-details';
 import { PublishedFileDetails } from '@shared/model/published-file-details';
+import { environment } from '@environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ISteamRemoteStorageService {
 
-  private baseUrl: string = 'http://localhost:3000/';
-  private collectionId: string = '2831281196';
+  private env = environment;
+  private baseUrl: string = this.env.apiUrl;
+  private collectionId: string = this.env.idCollectionSteam;
   private collectionCount: string = '1';
   private path = { all: 'GetAllMaps', byId: 'GetMapsById' };
 
