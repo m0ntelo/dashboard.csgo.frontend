@@ -3,6 +3,7 @@
 /* Global Styles for Material Components */
 @import "styles/custom/snackbar.material.css";
 @import "styles/custom/input.material.css";
+@import "styles/custom/icon.material.css";
 
 html, body { height: 100%; }
 body { margin: 0; font-family: 'Roboto', sans-serif; }
