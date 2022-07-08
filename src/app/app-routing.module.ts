@@ -4,7 +4,7 @@ import { LoginGuard } from '@core/guard/login.guard';
 
 const routes: Routes = [
     { 
-        path: '', 
+        path: 'login', 
         loadChildren: () => import('./modules/cs-login/cs-login.module').then(m => m.CsLoginModule)
     },
     { 
@@ -14,7 +14,7 @@ const routes: Routes = [
     },
     { 
         path: '**', 
-        redirectTo: '/', 
+        redirectTo: '/maps', 
         pathMatch: 'full' 
     }
 ];

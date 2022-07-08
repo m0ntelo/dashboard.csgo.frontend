@@ -20,11 +20,11 @@
                                 </mat-icon>
                         </button>
                         <button mat-menu-item
-                                [routerLink]="['/maps']">
+                                [routerLink]="['maps']">
                             Mapas
                         </button>
                         <button mat-menu-item
-                                [routerLink]="['/']">
+                                (click)="logout()">
                             Logout
                         </button>
                     </mat-menu>

@@ -1,0 +1,39 @@
+<section class="login-in">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <form class="login-in__box"
+                     [formGroup]="form"
+                     (ngSubmit)="onSubmit()">
+                    <div class="login-in__box__title">
+                        Dashboard <b>CSGO</b>
+                    </div>
+                    <mat-form-field appearance="fill">
+                        <mat-label>User</mat-label>
+                        <input  matInput 
+                                type="text"
+                                name="user"
+                                placeholder="user" 
+                                formControlName="user"
+                                ngDefaultControl>
+                    </mat-form-field>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Password</mat-label>
+                        <input  matInput 
+                                placeholder="password"
+                                name="password" 
+                                type="password"
+                                formControlName="password"
+                                ngDefaultControl>
+                    </mat-form-field>
+                    <button mat-raised-button 
+                            color="primary"
+                            type="submit"
+                            [disabled]="form.invalid">
+                            Login
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { LoginService } from '@core/service/login.service';
 
 @Component({
   selector: 'app-cs-login',
@@ -8,14 +7,7 @@ import { LoginService } from '@core/service/login.service';
 })
 export class CsLoginComponent implements OnInit {
 
-  constructor(
-    private loginService: LoginService
-  ) { }
+  constructor() { }
 
-  ngOnInit(): void {
-  }
-
-  public login(): void {
-    this.loginService.login();
-  }
+  ngOnInit(): void { }
 }
