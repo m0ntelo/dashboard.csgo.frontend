@@ -16,7 +16,6 @@ import { environment } from '@environments/environment';
 export class MapsListComponent implements OnInit, OnDestroy {
 
   public env = environment;
-  public link?: string = this.env.linkWorkShopSteam;
   public details?: PublishedFileDetails;
   private collection?: CollectionDetails;
   private unSubscribe = new Subject<boolean>();
@@ -88,6 +87,6 @@ export class MapsListComponent implements OnInit, OnDestroy {
   }
 
   public linkWorkshop(id?: string): void {
-    window.open(this.link + id, "_blank");
+    window.open(this.env.linkWorkShopSteam + id, "_blank");
   }
 }

@@ -1,4 +1,9 @@
-/* bootstrap 5 */
-@import "~bootstrap/dist/css/bootstrap.css"
+@import "~bootstrap/dist/css/bootstrap-grid.min.css";
+
+/* Global Styles for Material Components */
+@import "styles/custom/snackbar.material.css";
+
+html, body { height: 100%; }
+body { margin: 0; font-family: 'Roboto', sans-serif; }
 
 /*pattern font-size: 8, 16, 24, 32, 40, 48 */

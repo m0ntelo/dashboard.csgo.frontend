@@ -3,9 +3,21 @@
     padding: 120px 0 48px 0;
 
     &__details {
+        margin-bottom: 26px;
+        -webkit-box-shadow: -6px 8px 15px -5px rgba(0,0,0,0.42); 
+        box-shadow: -6px 8px 15px -5px rgba(0,0,0,0.42);
 
+        &__preview {
+            margin: 0;
+            padding: 0;
+            
+            img {
+                padding: 0;
+                margin: 0px 0 -8px 0;
+            }
+        }
+        
         &__card {
-            border-radius: 0px 0px 5px 5px;
             background-color: rgb(247, 238, 238);
             padding: 10px 10px;
             margin: 0px 0px 15px 0;

@@ -13,8 +13,8 @@ export class SnackbarService {
   public message(msg: string, isError: boolean = false): void {
     this.snackBar.open(msg, "X", {
       duration: 3000,
-      horizontalPosition: "right",
       verticalPosition: "top",
+      horizontalPosition: "right",
       panelClass: isError ? ["msg-error"] : ["msg-success"],
     });
   }

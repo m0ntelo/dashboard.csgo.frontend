@@ -1,0 +1,13 @@
+.msg-success {
+    background-color: rgb(42, 179, 138);
+    color: #fff;
+}
+
+.msg-error {
+    background-color: #e35e6b;
+    color: #fff;
+}
+
+.msg-success .mat-simple-snackbar-action {
+    color: white;
+}

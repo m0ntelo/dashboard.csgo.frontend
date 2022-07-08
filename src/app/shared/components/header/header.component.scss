@@ -19,15 +19,15 @@
         &__ip {
             display: flex;
             align-items: center;
-            padding-top: 6px;
             background-color: transparent;
             border: 2px solid white;
             color: white;
             text-transform: uppercase;
+            font-weight: bold;
 
             mat-icon {
-                margin-left: 6px;
                 font-size: 18px;
+                margin-top: 4px;
             }
         }
     }
