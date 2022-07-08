@@ -1,8 +1,9 @@
 .header {
     position: fixed;
+    z-index: 100;
     width: 100%;
     padding: 18px 0 18px 0;
-    background-color: blueviolet;
+    background-image: linear-gradient(blue, blueviolet);
 
     &__box {
         display: flex;
@@ -12,23 +13,12 @@
             color: white;
             font-size: 24px;
             font-weight: 400;
-            margin-top: 6px;
+            margin-top: 10px;
             text-transform: uppercase;
         }
 
-        &__ip {
-            display: flex;
-            align-items: center;
-            background-color: transparent;
-            border: 2px solid white;
+        &__menu {
             color: white;
-            text-transform: uppercase;
-            font-weight: bold;
-
-            mat-icon {
-                font-size: 18px;
-                margin-top: 4px;
-            }
         }
     }
 }

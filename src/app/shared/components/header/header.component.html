@@ -3,14 +3,31 @@
         <div class="row">
             <div class="col">
                 <div class="header__box">
-                    <div class="header__box__name">Dashboard <b>CS:GO</b></div>
-                    <button class="header__box__ip"
-                            (click)="copyCode()">
-                            Server IP 
-                            <mat-icon>
-                                content_copy
-                            </mat-icon>
+                    <div class="header__box__name">
+                        Dashboard <b>CS:GO</b>
+                    </div>
+                    <button mat-icon-button 
+                            [matMenuTriggerFor]="menu"
+                            class="header__box__menu">
+                        <mat-icon>menu</mat-icon>
                     </button>
+                    <mat-menu #menu="matMenu">
+                        <button mat-menu-item
+                                (click)="copyCode()">
+                                Server IP 
+                                <mat-icon>
+                                    content_copy
+                                </mat-icon>
+                        </button>
+                        <button mat-menu-item
+                                [routerLink]="['/maps']">
+                            Mapas
+                        </button>
+                        <button mat-menu-item
+                                [routerLink]="['/']">
+                            Logout
+                        </button>
+                    </mat-menu>
                 </div>
             </div>
         </div>

@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CsMapsComponent } from './cs-maps.component';
+import { CsLoginComponent } from './cs-login.component';
 
 const routes: Routes = [
   { 
     path: '', 
-    component: CsMapsComponent 
+    component: CsLoginComponent 
   }
 ];
 
@@ -13,4 +13,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class CsMapsRoutingModule { }
+export class CsLoginRoutingModule { }

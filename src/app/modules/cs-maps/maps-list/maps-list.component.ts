@@ -16,6 +16,7 @@ import { environment } from '@environments/environment';
 export class MapsListComponent implements OnInit, OnDestroy {
 
   public env = environment;
+  public loading?: boolean;
   public details?: PublishedFileDetails;
   private collection?: CollectionDetails;
   private unSubscribe = new Subject<boolean>();
@@ -50,6 +51,7 @@ export class MapsListComponent implements OnInit, OnDestroy {
   }
 
   private GetMapsById(): void {
+    this.loading = true;
     this.steamRemoteStorageService.GetMapsById(this.createBody())
       .pipe(takeUntil(this.unSubscribe))
       .subscribe(
@@ -58,6 +60,9 @@ export class MapsListComponent implements OnInit, OnDestroy {
         },
         () => {
           this.snackbarService.message('reclame com a valve! :(', true);
+        },
+        () => {
+          this.loading = false;
         }
       )
   }

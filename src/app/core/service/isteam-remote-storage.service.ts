@@ -17,7 +17,7 @@ export class ISteamRemoteStorageService {
   private baseUrl: string = this.env.apiUrl;
   private collectionId: string = this.env.idCollectionSteam;
   private collectionCount: string = '1';
-  private path = { all: 'GetAllMaps', byId: 'GetMapsById' };
+  private path = { all: 'maps', byId: 'maps/details' };
 
   constructor(
     private http: HttpClient,
